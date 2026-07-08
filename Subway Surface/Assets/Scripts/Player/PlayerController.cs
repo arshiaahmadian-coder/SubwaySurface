@@ -1,0 +1,123 @@
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField] Animator moveAnimator;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] float jumpForce;
+    [SerializeField] private float groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform groundCheckTransform;
+    [SerializeField] private float rollResetTime;
+    [SerializeField] private Collider standingCollider;
+    [SerializeField] private Collider rollingCollider;
+
+    [Header("Lines")]
+    [SerializeField] Transform[] linePositions;
+    [SerializeField] float laneChangeSpeed = 10f;
+
+    public int currentLine = 1;
+    public bool isRolling = false;
+    private float rollTimer = 0;
+
+    private bool isGrounded = false;
+
+    private Vector3 targetPosition;
+
+    private void Start()
+    {
+        targetPosition = transform.position;
+    }
+
+    private void FixedUpdate()
+    {   
+        if (isRolling)
+        {
+            rollTimer += Time.deltaTime;
+            if (rollTimer >= rollResetTime) ResetRoll();
+        }
+
+        isGrounded = Physics.Raycast(
+            groundCheckTransform.position,
+            Vector3.down,
+            groundCheckDistance,
+            groundLayer);
+
+        Vector3 target = new Vector3(
+            targetPosition.x,
+            rb.position.y,
+            rb.position.z);
+
+        Vector3 newPosition = Vector3.MoveTowards(
+            rb.position,
+            target,
+            laneChangeSpeed * Time.fixedDeltaTime);
+
+        rb.MovePosition(newPosition);
+    }
+
+    public void TryToMoveRight()
+    {
+        if (currentLine > 0)
+        {
+            currentLine--;
+
+            targetPosition = new Vector3(
+                linePositions[currentLine].position.x,
+                transform.position.y,
+                transform.position.z);
+
+            moveAnimator.SetTrigger("MoveRight");
+        }
+    }
+
+    public void TryToMoveLeft()
+    {
+        if (currentLine < 2)
+        {
+            currentLine++;
+
+            targetPosition = new Vector3(
+                linePositions[currentLine].position.x,
+                transform.position.y,
+                transform.position.z);
+
+            moveAnimator.SetTrigger("MoveLeft");
+        }
+    }
+
+    public void TryToJump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+            if (isRolling) ResetRoll();
+        }
+    }
+
+    public void TryToRoll()
+    {
+        if (isRolling == false && isGrounded)
+        {
+            isRolling = true;
+            // play rolling animation
+            rollingCollider.enabled = true;
+            standingCollider.enabled = false;
+        }
+    }
+
+    private void ResetRoll()
+    {
+        isRolling = false;
+        rollTimer = 0;
+        rollingCollider.enabled = false;
+        standingCollider.enabled = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(groundCheckTransform.position, Vector3.down * groundCheckDistance);
+    }
+}
