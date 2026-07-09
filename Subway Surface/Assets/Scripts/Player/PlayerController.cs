@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Animator moveAnimator;
+    [SerializeField] Animator modelAnimator;
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpForce;
     [SerializeField] private float groundCheckDistance = 0.2f;
@@ -54,6 +55,9 @@ public class PlayerController : MonoBehaviour
             laneChangeSpeed * Time.fixedDeltaTime);
 
         rb.MovePosition(newPosition);
+        modelAnimator.SetBool("IsGrounded", isGrounded);
+        bool isFalling = !isGrounded && rb.linearVelocity.y < -0.1f;
+        modelAnimator.SetBool("IsFalling", isFalling);
     }
 
     public void TryToMoveRight()
@@ -92,6 +96,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            modelAnimator.SetBool("IsGrounded", isGrounded);
             if (isRolling) ResetRoll();
         }
     }
@@ -101,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if (isRolling == false && isGrounded)
         {
             isRolling = true;
-            // play rolling animation
+            modelAnimator.SetTrigger("Roll");
             rollingCollider.enabled = true;
             standingCollider.enabled = false;
         }
