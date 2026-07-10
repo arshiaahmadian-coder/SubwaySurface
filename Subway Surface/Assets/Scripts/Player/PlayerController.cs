@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     public void TryToMoveLeft()
     {
-        if (currentLine < 2)
+        if (currentLine < linePositions.Length - 1)
         {
             currentLine++;
 
