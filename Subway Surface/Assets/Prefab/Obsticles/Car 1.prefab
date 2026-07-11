@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4927688347020502961}
+  - component: {fileID: 624320929371264205}
   m_Layer: 0
   m_Name: Car 1
   m_TagString: Untagged
@@ -34,6 +35,22 @@ Transform:
   - {fileID: 7674147397147028077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &624320929371264205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537329587380143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68aecc557337a345a1008f702514e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChunkMove
+  chunkPrefab: {fileID: 0}
+  spawnOffsed: 0
+  despawnPos: -20
+  spawnAnother: 0
 --- !u!1 &1397127730261908818
 GameObject:
   m_ObjectHideFlags: 0
