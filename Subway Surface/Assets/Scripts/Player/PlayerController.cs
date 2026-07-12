@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private float rollTimer = 0;
 
     private bool isGrounded = false;
+    private bool isDead = false;
 
     private Vector3 targetPosition;
 
@@ -31,7 +32,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {   
+    { 
+        if (isDead) return;
+    
         if (isRolling)
         {
             rollTimer += Time.deltaTime;
@@ -60,8 +63,18 @@ public class PlayerController : MonoBehaviour
         modelAnimator.SetBool("IsFalling", isFalling);
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.layer == 3)
+        {
+            Die();
+        }
+    }
+
     public void TryToMoveRight()
     {
+        if (isDead) return;
+
         if (currentLine > 0)
         {
             currentLine--;
@@ -77,6 +90,8 @@ public class PlayerController : MonoBehaviour
 
     public void TryToMoveLeft()
     {
+        if (isDead) return;
+
         if (currentLine < linePositions.Length - 1)
         {
             currentLine++;
@@ -92,6 +107,8 @@ public class PlayerController : MonoBehaviour
 
     public void TryToJump()
     {
+        if (isDead) return;
+
         if (isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -103,6 +120,8 @@ public class PlayerController : MonoBehaviour
 
     public void TryToRoll()
     {
+        if (isDead) return;
+
         if (isRolling == false && isGrounded)
         {
             isRolling = true;
@@ -118,6 +137,15 @@ public class PlayerController : MonoBehaviour
         rollTimer = 0;
         rollingCollider.enabled = false;
         standingCollider.enabled = true;
+    }
+
+    public void Die()
+    {
+        isDead = true;
+        modelAnimator.SetTrigger("Die");
+        rb.linearVelocity = Vector3.zero;
+        ScreenShake.singleton.Shake(2f, 0.1f);
+        GameManager.singleton.GameOver();
     }
 
     private void OnDrawGizmos()

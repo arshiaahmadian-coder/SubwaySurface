@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5980841965897539315}
   - component: {fileID: 5060954645530945607}
   - component: {fileID: 5597520431194724780}
-  m_Layer: 0
+  - component: {fileID: 296461661979986168}
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,6 +92,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &296461661979986168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664732039356460553}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5792167, y: 2.3922381, z: 3.6526067}
+  m_Center: {x: 0, y: 1.409411, z: 0.005155921}
 --- !u!1 &1235156611154998020
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7096383453272866946}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +159,7 @@ GameObject:
   - component: {fileID: 4141637974518289526}
   - component: {fileID: 3663509980207124711}
   - component: {fileID: 5811128213291230676}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +249,7 @@ GameObject:
   - component: {fileID: 5465965152963041586}
   - component: {fileID: 901366122884417097}
   - component: {fileID: 2036432084158388611}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +339,7 @@ GameObject:
   - component: {fileID: 1014404401801165316}
   - component: {fileID: 2629643900540214793}
   - component: {fileID: 6944906595248776850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +429,7 @@ GameObject:
   - component: {fileID: 3779490297355882858}
   - component: {fileID: 2553070529964170928}
   - component: {fileID: 7406140678008806790}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4193475327746084420}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2935777832270554665}
   - component: {fileID: 2350286702882056672}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: old black car
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,6 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] List<GameObject> obsticlePrefabs;
     [SerializeField] List<GameObject> BlockerObsticlePrefabs;
     [SerializeField] float spawnInterval;
+    private bool spawn = true;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class ObstacleSpawner : MonoBehaviour
         SpawnPattern3();
 
         yield return new WaitForSeconds(spawnInterval);
-        StartCoroutine(SpawnObstacle());
+        if (spawn) StartCoroutine(SpawnObstacle());
     }
 
     private void SpawnPattern1() {
@@ -52,5 +53,10 @@ public class ObstacleSpawner : MonoBehaviour
         blkIndex = Random.Range(0, BlockerObsticlePrefabs.Count - 1);
         if (posIndex3 != posIndex2 && posIndex3 != posIndex)
             Instantiate(BlockerObsticlePrefabs[blkIndex], obsticleSpawnPoints[posIndex2].position, Quaternion.identity);
+    }
+
+    public void Stop()
+    {
+        spawn = false;
     }
 }

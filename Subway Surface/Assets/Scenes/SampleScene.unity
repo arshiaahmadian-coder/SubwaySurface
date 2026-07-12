@@ -527,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f626a6ef89ac2438029609347c0c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
+  obstacleSpawner: {fileID: 439424714}
   chunkMoveSpeed: -9
 --- !u!114 &439424714
 MonoBehaviour:
@@ -631,6 +632,8 @@ GameObject:
   - component: {fileID: 636993793}
   - component: {fileID: 636993792}
   - component: {fileID: 636993794}
+  - component: {fileID: 636993796}
+  - component: {fileID: 636993795}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -727,6 +730,36 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!114 &636993795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636993791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f18e4b418db6524ab9c009923eaffdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenShake
+  cam: {fileID: 636993792}
+--- !u!114 &636993796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636993791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 1
+  m_NoiseOffsets: {x: -198.08948, y: 78.862305, z: 308.53052}
 --- !u!1 &662799657
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +991,7 @@ GameObject:
   - component: {fileID: 1343744892}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1325,6 +1358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1938319520}
   - component: {fileID: 1938319519}
+  - component: {fileID: 1938319521}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1344,7 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf109668ce011424a8cfdcd2ed38bc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingManager
-  swipeThreshold: 100
+  swipeThreshold: 80
 --- !u!4 &1938319520
 Transform:
   m_ObjectHideFlags: 0
@@ -1360,6 +1394,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1938319521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938319518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e16b361ff7bbd48add279c909fb570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &1949199225
 PrefabInstance:
   m_ObjectHideFlags: 0

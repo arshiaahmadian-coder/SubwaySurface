@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9178127303677711446}
   - component: {fileID: 3772850246469886925}
   - component: {fileID: 5683013739455780811}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,8 @@ GameObject:
   - component: {fileID: 2555028810727495588}
   - component: {fileID: 387463964080629893}
   - component: {fileID: 3458563849893550867}
-  m_Layer: 0
+  - component: {fileID: 5233165335548496459}
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,6 +181,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5233165335548496459
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3568896189885885864}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8999999, y: 2.6019945, z: 4.8337975}
+  m_Center: {x: 0.050834775, y: 1.301269, z: 0.0145998}
 --- !u!1 &3712705635539740908
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +213,7 @@ GameObject:
   - component: {fileID: 8032404397119685718}
   - component: {fileID: 6660497712458820744}
   - component: {fileID: 6561760899900692869}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7525858069746878228}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2607620050582812463}
   - component: {fileID: -7589330961739463925}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: broken car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2593798638031853778}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5106292010320763343}
   - component: {fileID: 5381521912504905822}
   - component: {fileID: 1633610302806169361}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2752810595564243496}
   - component: {fileID: 2952589199510963498}
   - component: {fileID: 9015918237553702111}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 5585678250263598855}
   - component: {fileID: 6699942476325231753}
   - component: {fileID: 6595513625536606890}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FrontLeftWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7911824413527642464}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3938829591510952508}
   - component: {fileID: 996984799661298979}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mini bus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,8 @@ GameObject:
   - component: {fileID: 2568922030544283131}
   - component: {fileID: 3781070039143748828}
   - component: {fileID: 8943836635188444621}
-  m_Layer: 0
+  - component: {fileID: 6768525152755307496}
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,6 +447,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6768525152755307496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8656585609696043978}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.81, y: 2.6181922, z: 4.868126}
+  m_Center: {x: 0, y: 1.6047857, z: 0.006566763}
 --- !u!1 &8844768330783897062
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +479,7 @@ GameObject:
   - component: {fileID: 2837271599035325982}
   - component: {fileID: 1338212980144447148}
   - component: {fileID: 2634348881954914872}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RearRightWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6110442741784288845}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
