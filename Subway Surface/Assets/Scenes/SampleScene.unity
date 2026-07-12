@@ -550,6 +550,9 @@ MonoBehaviour:
   obsticleSpawnPointsParent: {fileID: 1853349735}
   obsticlePrefabs:
   - {fileID: 3483069100986894451, guid: 473c2b629ae3f5f4ab269324be309dc8, type: 3}
+  - {fileID: 3483069100986894451, guid: 473c2b629ae3f5f4ab269324be309dc8, type: 3}
+  - {fileID: 6620964740349535410, guid: b55c191e4b1f2b845a0ce35f93c38038, type: 3}
+  - {fileID: 7208770549661322206, guid: 569ad492926ba614ab924c233ca13d34, type: 3}
   BlockerObsticlePrefabs:
   - {fileID: 3537329587380143, guid: 291acff7b642a524a9c08c2f0189c5cb, type: 3}
   - {fileID: 5446947014233068000, guid: 8d167684e2fef8e4b8cbe1d287c2990d, type: 3}
