@@ -4,75 +4,116 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] List<Transform> obsticleSpawnPoints;
-    [SerializeField] Transform obsticleSpawnPointsParent;
-    [SerializeField] List<GameObject> obsticlePrefabs;
-    [SerializeField] List<GameObject> BlockerObsticlePrefabs;
-    [SerializeField] float spawnInterval;
-    
-    [Header("before start spawns")]
-    [SerializeField] float spawnDistance;
-    [SerializeField] int spawnAmount;
+    [Header("Spawn Points")]
+    [SerializeField] private List<Transform> obstacleSpawnPoints;
+    [SerializeField] private Transform spawnPointsParent;
 
-    private bool spawn = true;
+    [Header("Prefabs")]
+    [SerializeField] private List<GameObject> obstaclePrefabs;
+    [SerializeField] private List<GameObject> blockerPrefabs;
+    [SerializeField] private GameObject coinPrefab;
+
+    [Header("Spawn Settings")]
+    [SerializeField] private float spawnInterval = 2f;
+
+    [Header("Before Start Spawns")]
+    [SerializeField] private float spawnDistance = 20f;
+    [SerializeField] private int spawnAmount = 10;
+
+    private bool canSpawn = true;
 
     private void Start()
     {
-        for (int i = 0; i <= spawnAmount; i++)
+        for (int i = 0; i < spawnAmount; i++)
         {
-            SpawnPattern2();
-            obsticleSpawnPointsParent.Translate(0, 0, spawnDistance);
+            SpawnPatternEasy();
+            spawnPointsParent.Translate(Vector3.forward * spawnDistance);
         }
 
-        StartCoroutine(SpawnObstacle());
+        StartCoroutine(SpawnRoutine());
     }
 
-    IEnumerator SpawnObstacle()
+    private IEnumerator SpawnRoutine()
     {
-        if (ChunkManager.singleton.chunkMoveSpeed < -12) SpawnPattern3();
-        else SpawnPattern2();
+        while (canSpawn)
+        {
+            if (ChunkManager.singleton.chunkMoveSpeed < -12)
+                SpawnPatternMedium();
+            else
+                SpawnPatternEasy();
 
-        yield return new WaitForSeconds(spawnInterval);
-        if (spawn) StartCoroutine(SpawnObstacle());
-        ChunkManager.singleton.IncreaseSpeed();
+            ChunkManager.singleton.IncreaseSpeed();
+
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 
-    private void SpawnPattern1() {
-        int posIndex = Random.Range(0, obsticleSpawnPoints.Count);
-        int obsIndex = Random.Range(0, obsticlePrefabs.Count);
-        Instantiate(obsticlePrefabs[obsIndex], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
-    }
-
-    private void SpawnPattern2()
+    private void SpawnPatternEasy()
     {
-        int posIndex = Random.Range(0, obsticleSpawnPoints.Count);
-        int posIndex2 = Random.Range(0, obsticleSpawnPoints.Count);
-        int obsIndex = Random.Range(0, obsticlePrefabs.Count);
-        int blkIndex = Random.Range(0, BlockerObsticlePrefabs.Count);
-        Instantiate(obsticlePrefabs[obsIndex], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
-        if (posIndex != posIndex2) 
-            Instantiate(BlockerObsticlePrefabs[blkIndex], obsticleSpawnPoints[posIndex2].position, Quaternion.identity);
+        List<int> indexes = GetUniqueIndexes(3);
+
+        SpawnObstacle(indexes[0]);
+        SpawnBlocker(indexes[1]);
+        SpawnCoin(indexes[2]);
     }
 
-    private void SpawnPattern3()
+    private void SpawnPatternMedium()
     {
-        int posIndex = Random.Range(0, obsticleSpawnPoints.Count);
-        int posIndex2 = Random.Range(0, obsticleSpawnPoints.Count);
-        int posIndex3;
-        do { posIndex3 = Random.Range(0, obsticleSpawnPoints.Count); } 
-        while(posIndex3 == posIndex2 || posIndex3 == posIndex);
+        List<int> indexes = GetUniqueIndexes(4);
 
-        int obsIndex = Random.Range(0, obsticlePrefabs.Count);
-        int blkIndex = Random.Range(0, BlockerObsticlePrefabs.Count);
-        Instantiate(obsticlePrefabs[obsIndex], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
-        if (posIndex != posIndex2) 
-            Instantiate(BlockerObsticlePrefabs[blkIndex], obsticleSpawnPoints[posIndex2].position, Quaternion.identity);
-        blkIndex = Random.Range(0, BlockerObsticlePrefabs.Count);
-        Instantiate(BlockerObsticlePrefabs[blkIndex], obsticleSpawnPoints[posIndex3].position, Quaternion.identity);
+        SpawnObstacle(indexes[0]);
+        SpawnBlocker(indexes[1]);
+        SpawnObstacle(indexes[2]);
+        SpawnCoin(indexes[3]);
+    }
+
+    private void SpawnObstacle(int spawnPointIndex)
+    {
+        int prefabIndex = Random.Range(0, obstaclePrefabs.Count);
+
+        Instantiate(
+            obstaclePrefabs[prefabIndex],
+            obstacleSpawnPoints[spawnPointIndex].position,
+            Quaternion.identity);
+    }
+
+    private void SpawnBlocker(int spawnPointIndex)
+    {
+        int prefabIndex = Random.Range(0, blockerPrefabs.Count);
+
+        Instantiate(
+            blockerPrefabs[prefabIndex],
+            obstacleSpawnPoints[spawnPointIndex].position,
+            Quaternion.identity);
+    }
+
+    private void SpawnCoin(int spawnPointIndex)
+    {
+        if (Random.Range(0, 3) != 0) return;
+
+        Instantiate(
+            coinPrefab,
+            obstacleSpawnPoints[spawnPointIndex].position,
+            Quaternion.identity);
+    }
+
+    private List<int> GetUniqueIndexes(int count)
+    {
+        List<int> indexes = new();
+
+        while (indexes.Count < count)
+        {
+            int index = Random.Range(0, obstacleSpawnPoints.Count);
+
+            if (!indexes.Contains(index))
+                indexes.Add(index);
+        }
+
+        return indexes;
     }
 
     public void Stop()
     {
-        spawn = false;
+        canSpawn = false;
     }
 }

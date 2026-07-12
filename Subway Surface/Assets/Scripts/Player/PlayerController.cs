@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Collider standingCollider;
     [SerializeField] private Collider rollingCollider;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip loseSound;
+
     [Header("Lines")]
     [SerializeField] Transform[] linePositions;
     [SerializeField] float laneChangeSpeed = 10f;
@@ -143,6 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         modelAnimator.SetTrigger("Die");
+        SoundManager.singleton.PlaySoundEffect(loseSound);
         rb.linearVelocity = Vector3.zero;
         ScreenShake.singleton.Shake(2f, 0.1f);
         GameManager.singleton.GameOver();

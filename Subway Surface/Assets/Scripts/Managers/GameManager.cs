@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        print("Player died");
+        SoundManager.singleton.musicAudioSource.Stop();
         ChunkManager.singleton.Stop();
         Invoke(nameof(ReloadScene), 4f);
     }
