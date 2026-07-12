@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 439424713}
   - component: {fileID: 439424714}
   m_Layer: 0
-  m_Name: chunkManager
+  m_Name: ChunkManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,10 +546,12 @@ MonoBehaviour:
   - {fileID: 804591175}
   - {fileID: 1912065682}
   obsticlePrefabs:
-  - {fileID: 3537329587380143, guid: 291acff7b642a524a9c08c2f0189c5cb, type: 3}
   - {fileID: 3483069100986894451, guid: 473c2b629ae3f5f4ab269324be309dc8, type: 3}
   BlockerObsticlePrefabs:
   - {fileID: 3537329587380143, guid: 291acff7b642a524a9c08c2f0189c5cb, type: 3}
+  - {fileID: 5446947014233068000, guid: 8d167684e2fef8e4b8cbe1d287c2990d, type: 3}
+  - {fileID: 8919283863525501010, guid: 2b44215b046dd5b4eb7222b8a132c4bb, type: 3}
+  - {fileID: 7481534786390743838, guid: 284d34349821abc438589d70bb105369, type: 3}
   spawnInterval: 1
 --- !u!1 &458440752
 GameObject:

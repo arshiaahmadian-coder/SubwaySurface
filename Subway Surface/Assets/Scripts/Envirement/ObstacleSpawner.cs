@@ -16,7 +16,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     IEnumerator SpawnObstacle()
     {
-        SpawnPattern2();
+        SpawnPattern3();
 
         yield return new WaitForSeconds(spawnInterval);
         StartCoroutine(SpawnObstacle());
@@ -24,21 +24,33 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnPattern1() {
         int posIndex = Random.Range(0, obsticleSpawnPoints.Count - 1);
-        Instantiate(obsticlePrefabs[0], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
+        int obsIndex = Random.Range(0, obsticlePrefabs.Count - 1);
+        Instantiate(obsticlePrefabs[obsIndex], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
     }
 
     private void SpawnPattern2()
     {
         int posIndex = Random.Range(0, obsticleSpawnPoints.Count - 1);
         int posIndex2 = Random.Range(0, obsticleSpawnPoints.Count - 1);
-        Instantiate(obsticlePrefabs[0], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
+        int obsIndex = Random.Range(0, obsticlePrefabs.Count - 1);
+        int blkIndex = Random.Range(0, BlockerObsticlePrefabs.Count - 1);
+        Instantiate(obsticlePrefabs[obsIndex], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
         if (posIndex != posIndex2) 
-            Instantiate(obsticlePrefabs[1], obsticleSpawnPoints[posIndex2].position, Quaternion.identity);
+            Instantiate(BlockerObsticlePrefabs[blkIndex], obsticleSpawnPoints[posIndex2].position, Quaternion.identity);
     }
 
     private void SpawnPattern3()
     {
         int posIndex = Random.Range(0, obsticleSpawnPoints.Count - 1);
-        Instantiate(obsticlePrefabs[0], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
+        int posIndex2 = Random.Range(0, obsticleSpawnPoints.Count - 1);
+        int posIndex3 = Random.Range(0, obsticleSpawnPoints.Count - 1);
+        int obsIndex = Random.Range(0, obsticlePrefabs.Count - 1);
+        int blkIndex = Random.Range(0, BlockerObsticlePrefabs.Count - 1);
+        Instantiate(obsticlePrefabs[obsIndex], obsticleSpawnPoints[posIndex].position, Quaternion.identity);
+        if (posIndex != posIndex2) 
+            Instantiate(BlockerObsticlePrefabs[blkIndex], obsticleSpawnPoints[posIndex2].position, Quaternion.identity);
+        blkIndex = Random.Range(0, BlockerObsticlePrefabs.Count - 1);
+        if (posIndex3 != posIndex2 && posIndex3 != posIndex)
+            Instantiate(BlockerObsticlePrefabs[blkIndex], obsticleSpawnPoints[posIndex2].position, Quaternion.identity);
     }
 }
