@@ -5,13 +5,25 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] List<Transform> obsticleSpawnPoints;
+    [SerializeField] Transform obsticleSpawnPointsParent;
     [SerializeField] List<GameObject> obsticlePrefabs;
     [SerializeField] List<GameObject> BlockerObsticlePrefabs;
     [SerializeField] float spawnInterval;
+    
+    [Header("before start spawns")]
+    [SerializeField] float spawnDistance;
+    [SerializeField] int spawnAmount;
+
     private bool spawn = true;
 
     private void Start()
     {
+        for (int i = 0; i <= spawnAmount; i++)
+        {
+            SpawnPattern2();
+            obsticleSpawnPointsParent.Translate(0, 0, spawnDistance);
+        }
+
         StartCoroutine(SpawnObstacle());
     }
 
