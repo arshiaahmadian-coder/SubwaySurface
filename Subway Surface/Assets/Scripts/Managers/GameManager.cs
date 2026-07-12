@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,5 +10,11 @@ public class GameManager : MonoBehaviour
     {
         print("Player died");
         ChunkManager.singleton.Stop();
+        Invoke(nameof(ReloadScene), 4f);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

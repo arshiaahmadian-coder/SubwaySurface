@@ -529,6 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
   obstacleSpawner: {fileID: 439424714}
   chunkMoveSpeed: -9
+  increaseAmount: -0.008
 --- !u!114 &439424714
 MonoBehaviour:
   m_ObjectHideFlags: 0
