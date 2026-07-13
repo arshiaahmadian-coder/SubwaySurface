@@ -1285,6 +1285,14 @@ MonoBehaviour:
   standingCollider: {fileID: 1343744887}
   rollingCollider: {fileID: 1343744892}
   loseSound: {fileID: 8300000, guid: 89c2cefe0b9f0ed4caacd12f8aee239f, type: 3}
+  impactSound: {fileID: 8300000, guid: 08fa7d1816dd1c04391c7028958ed4f9, type: 3}
+  slideLeftSound: {fileID: 8300000, guid: e99a4a5afba40884097e4801626572c0, type: 3}
+  slideRightSound: {fileID: 8300000, guid: d1c0365dd11191048bf3d6471fd57ef5, type: 3}
+  slideUpSound: {fileID: 8300000, guid: da244d15fc7ad544fa7f76dd763482c2, type: 3}
+  slideDownSound: {fileID: 8300000, guid: d8da9058828cdd74fa98b92b2586f018, type: 3}
+  fallSound: {fileID: 8300000, guid: 940ee415b6cabff4ea19ce5f9c9125dd, type: 3}
+  walk1Sound: {fileID: 8300000, guid: a060157f5f020f24083100cd0a9283ae, type: 3}
+  walk2Sound: {fileID: 8300000, guid: 9bd06c9b5fe581144a02a5709e0363fa, type: 3}
   linePositions:
   - {fileID: 662799658}
   - {fileID: 593592464}
@@ -1525,7 +1533,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 8e8620911158c4244b34553cdb96ae1f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2192,6 +2200,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1343744890}
     m_Modifications:
+    - target: {fileID: 1201480190439601793, guid: 45d9a49be224d5c4cbec2683e01c040b, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1343744885}
     - target: {fileID: 1472304184488437959, guid: 45d9a49be224d5c4cbec2683e01c040b, type: 3}
       propertyPath: m_Name
       value: male 1

@@ -15,6 +15,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] private AudioClip loseSound;
+    [SerializeField] private AudioClip impactSound;
+    [SerializeField] private AudioClip slideLeftSound;
+    [SerializeField] private AudioClip slideRightSound;
+    [SerializeField] private AudioClip slideUpSound;
+    [SerializeField] private AudioClip slideDownSound;
+    [SerializeField] private AudioClip fallSound;
+    [SerializeField] private AudioClip walk1Sound;
+    [SerializeField] private AudioClip walk2Sound;
 
     [Header("Lines")]
     [SerializeField] Transform[] linePositions;
@@ -48,7 +56,8 @@ public class PlayerController : MonoBehaviour
             groundCheckTransform.position,
             Vector3.down,
             groundCheckDistance,
-            groundLayer);
+            groundLayer
+        );
 
         Vector3 target = new Vector3(
             targetPosition.x,
@@ -88,6 +97,7 @@ public class PlayerController : MonoBehaviour
                 transform.position.z);
 
             moveAnimator.SetTrigger("MoveRight");
+            SoundManager.singleton.PlaySoundEffect(slideRightSound);
         }
     }
 
@@ -105,6 +115,7 @@ public class PlayerController : MonoBehaviour
                 transform.position.z);
 
             moveAnimator.SetTrigger("MoveLeft");
+            SoundManager.singleton.PlaySoundEffect(slideLeftSound);
         }
     }
 
@@ -117,6 +128,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
             modelAnimator.SetBool("IsGrounded", isGrounded);
+            SoundManager.singleton.PlaySoundEffect(slideUpSound);
             if (isRolling) ResetRoll();
         }
     }
@@ -129,6 +141,7 @@ public class PlayerController : MonoBehaviour
         {
             isRolling = true;
             modelAnimator.SetTrigger("Roll");
+            SoundManager.singleton.PlaySoundEffect(slideDownSound);
             rollingCollider.enabled = true;
             standingCollider.enabled = false;
         }
@@ -146,10 +159,19 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         modelAnimator.SetTrigger("Die");
-        SoundManager.singleton.PlaySoundEffect(loseSound);
+        // SoundManager.singleton.PlaySoundEffect(loseSound, 0);
+        SoundManager.singleton.PlaySoundEffect(impactSound, 0);
         rb.linearVelocity = Vector3.zero;
         ScreenShake.singleton.Shake(2f, 0.1f);
         GameManager.singleton.GameOver();
+    }
+
+    public void PlayWalkSound1() {
+        // SoundManager.singleton.PlaySoundEffect(walk1Sound);
+    }
+
+    public void PlayWalkSound2() {
+        // SoundManager.singleton.PlaySoundEffect(walk2Sound);
     }
 
     private void OnDrawGizmos()
