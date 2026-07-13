@@ -13,6 +13,7 @@ public class Coin : MonoBehaviour
             SoundManager.singleton.PlaySoundEffect(collectClip);
             // play particle effect
             // give coin
+            CoinCounter.singleton.AddCoin();
             Destroy(gameObject);
         }
     }
