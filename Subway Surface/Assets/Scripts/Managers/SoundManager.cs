@@ -8,11 +8,6 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicAudioSource;
     public static SoundManager singleton;
     private void Awake() { singleton = this; }
-
-    private void Start()
-    {
-        StartCoroutine(StartMusicSlowly());
-    }
     
     public void PlaySoundEffect(AudioClip clip, float pitchChangeRatio = 0.05f)
     {

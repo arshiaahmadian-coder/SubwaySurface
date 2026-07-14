@@ -12,13 +12,14 @@ public class SettingManager : MonoBehaviour
     private void Start()
     {
         LoadData();
+        StartCoroutine(SoundManager.singleton.StartMusicSlowly());
     }
 
     public void LoadData() {
         SettingsData settingsData = new SettingsData();
-        if (SaveLoadManager.CheckFileExists(SaveLoadManager.singleton.currencyDataFileName))
-            SaveLoadManager.singleton.Load(settingsData, SaveLoadManager.singleton.currencyDataFileName);
-        else SaveLoadManager.singleton.Save(settingsData, SaveLoadManager.singleton.currencyDataFileName);
+        if (SaveLoadManager.CheckFileExists(SaveLoadManager.singleton.settingsDataFileName))
+            SaveLoadManager.singleton.Load(settingsData, SaveLoadManager.singleton.settingsDataFileName);
+        else SaveLoadManager.singleton.Save(settingsData, SaveLoadManager.singleton.settingsDataFileName);
 
         musicSoundVolume = settingsData.musicSoundVolume;
         soundFxVolume = settingsData.SoundFxVolume;
@@ -29,6 +30,6 @@ public class SettingManager : MonoBehaviour
         SettingsData settingsData = new SettingsData();
         settingsData.SoundFxVolume = soundFxVolume;
         settingsData.musicSoundVolume = musicSoundVolume;
-        SaveLoadManager.singleton.Save(settingsData, SaveLoadManager.singleton.currencyDataFileName);
+        SaveLoadManager.singleton.Save(settingsData, SaveLoadManager.singleton.settingsDataFileName);
     }
 }
