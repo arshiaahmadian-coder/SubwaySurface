@@ -699,7 +699,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 2192069773480953215, guid: 30c1e110ee648ee45844c7976d6e8190, type: 3}
   spawnInterval: 1
   spawnDistance: 11
-  spawnAmount: 10
+  spawnAmount: 8
 --- !u!1 &458440752
 GameObject:
   m_ObjectHideFlags: 0

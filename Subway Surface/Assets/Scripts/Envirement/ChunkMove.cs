@@ -5,7 +5,7 @@ public class ChunkMove : MonoBehaviour
     [SerializeField] GameObject chunkPrefab;
     [SerializeField] float spawnOffsed;
     [SerializeField] float despawnPos;
-    [SerializeField] bool spawnAnother = true;
+    [SerializeField] bool teleport = true;
 
     private void Update()
     {
@@ -13,14 +13,13 @@ public class ChunkMove : MonoBehaviour
 
         if (transform.position.z <= despawnPos)
         {
-            if (spawnAnother)
+            if (teleport)
             {
                 // spawn another chunk
-                Vector3 spawnPosition = new Vector3(0, 0, transform.position.z + spawnOffsed);
-                Instantiate(chunkPrefab, spawnPosition, Quaternion.identity);
-            }
-            // destroy self
-            Destroy(gameObject);
+                Vector3 newPos = new Vector3(0, 0, transform.position.z + spawnOffsed);
+                transform.position = newPos;
+            } else // destroy self
+                Destroy(gameObject);
         }
     }
 }
