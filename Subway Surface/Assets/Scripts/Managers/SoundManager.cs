@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -7,10 +8,41 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicAudioSource;
     public static SoundManager singleton;
     private void Awake() { singleton = this; }
+
+    private void Start()
+    {
+        StartCoroutine(StartMusicSlowly());
+    }
     
     public void PlaySoundEffect(AudioClip clip, float pitchChangeRatio = 0.05f)
     {
         effectsAudioSource.pitch = Random.Range(1 - pitchChangeRatio, 1 + pitchChangeRatio);
         effectsAudioSource.PlayOneShot(clip);
+    }
+
+    public IEnumerator StopMusicSlowly(float fadeDuration = 1f)
+    {
+        float startVolume = musicAudioSource.volume;
+        while (musicAudioSource.volume > 0)
+        {
+            musicAudioSource.volume -= startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        musicAudioSource.volume = 0;
+        musicAudioSource.Stop();
+    }
+
+    public IEnumerator StartMusicSlowly(float fadeDuration = 0.8f)
+    {
+        float startVolume = musicAudioSource.volume;
+        musicAudioSource.volume = 0;
+        while (musicAudioSource.volume <= startVolume)
+        {
+            musicAudioSource.volume += startVolume * Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+
+        musicAudioSource.volume = startVolume;
     }
 }
