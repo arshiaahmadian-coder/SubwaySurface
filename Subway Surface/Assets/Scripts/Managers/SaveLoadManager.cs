@@ -4,6 +4,7 @@ using UnityEngine;
 public class SaveLoadManager : MonoBehaviour
 {
     public string currencyDataFileName = "currency.json";
+    public string settingsDataFileName = "settings.json";
     public string skinDataFileName = "skin.json";
 
     public static SaveLoadManager singleton;

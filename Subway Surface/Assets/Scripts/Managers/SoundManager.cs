@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     
     public void PlaySoundEffect(AudioClip clip, float pitchChangeRatio = 0.05f)
     {
+        effectsAudioSource.volume = SettingManager.singleton.soundFxVolume;
         effectsAudioSource.pitch = Random.Range(1 - pitchChangeRatio, 1 + pitchChangeRatio);
         effectsAudioSource.PlayOneShot(clip);
     }
@@ -33,9 +34,9 @@ public class SoundManager : MonoBehaviour
         musicAudioSource.Stop();
     }
 
-    public IEnumerator StartMusicSlowly(float fadeDuration = 0.8f)
+    public IEnumerator StartMusicSlowly(float fadeDuration = 1f)
     {
-        float startVolume = musicAudioSource.volume;
+        float startVolume = SettingManager.singleton.musicSoundVolume;
         musicAudioSource.volume = 0;
         while (musicAudioSource.volume <= startVolume)
         {
