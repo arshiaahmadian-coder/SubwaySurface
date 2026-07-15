@@ -19,7 +19,7 @@ public class SettingsButton : CustomButton
     }
 
     public void OnSave() {
-        SoundManager.singleton.PlaySoundEffect(clickSound);
+        SoundManager.singleton.PlayClickSound();
         settingsMenu.SetActive(false);
         buttonsBox.SetActive(true);
 
@@ -29,7 +29,7 @@ public class SettingsButton : CustomButton
     }
 
     public void OnCancel() {
-        SoundManager.singleton.PlaySoundEffect(clickSound);
+        SoundManager.singleton.PlayClickSound();
         settingsMenu.SetActive(false);
         buttonsBox.SetActive(true);
 

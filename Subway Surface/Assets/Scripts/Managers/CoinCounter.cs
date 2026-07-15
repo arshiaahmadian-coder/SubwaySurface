@@ -1,5 +1,5 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinCounter : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class CoinCounter : MonoBehaviour
     private void Awake() { singleton = this; }
 
     public int coinsAmount;
-    public TMP_Text coinCounterText;
+    public Text coinCounterText;
 
     public void AddCoin(int amount = 1)
     {

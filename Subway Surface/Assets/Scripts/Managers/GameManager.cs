@@ -1,13 +1,14 @@
-using TMPro;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject dialogBox;
     [SerializeField] GameObject UIBox;
-    [SerializeField] TMP_Text UiScoreTxt;
-    [SerializeField] TMP_Text scoreTxt;
-    [SerializeField] TMP_Text coinTxt;
+    [SerializeField] Text UiScoreTxt;
+    [SerializeField] Text scoreTxt;
+    [SerializeField] Text coinTxt;
     public int scoreAmount;
     private bool isGameOver;
     private float timer;

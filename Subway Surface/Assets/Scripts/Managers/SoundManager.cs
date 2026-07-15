@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource effectsAudioSource;
     public AudioSource musicAudioSource;
+    public AudioClip clickSound;
     public static SoundManager singleton;
     private void Awake() { singleton = this; }
     
@@ -14,6 +15,11 @@ public class SoundManager : MonoBehaviour
         effectsAudioSource.volume = SettingManager.singleton.soundFxVolume;
         effectsAudioSource.pitch = Random.Range(1 - pitchChangeRatio, 1 + pitchChangeRatio);
         effectsAudioSource.PlayOneShot(clip);
+    }
+
+    public void PlayClickSound()
+    {
+        PlaySoundEffect(clickSound);
     }
 
     public IEnumerator StopMusicSlowly(float fadeDuration = 1f)

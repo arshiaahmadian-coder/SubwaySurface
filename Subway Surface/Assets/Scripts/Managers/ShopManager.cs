@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,17 +11,18 @@ public class ShopManager : MonoBehaviour
     [SerializeField] List<int> itemsPrice = new List<int>();
 
     [Header("UI Objects")]
-    public TMP_Text coinText;
-    public TMP_Text highScoreText;
+    public Text coinText;
+    public Text highScoreText;
     [SerializeField] GameObject shopMenu;
     [SerializeField] GameObject ui;
-    [SerializeField] TMP_Text buyButtonText;
+    [SerializeField] Text buyButtonText;
     [SerializeField] Button buyButton;
+    [SerializeField] Image buyButtonSpriteRenderer;
 
-    [Header("Colors")]
-    [SerializeField] Color redColor;
-    [SerializeField] Color defaultColor;
-    [SerializeField] Color greenColor;
+    [Header("Sprites")]
+    [SerializeField] Sprite redSprite;
+    [SerializeField] Sprite defaultSprite;
+    [SerializeField] Sprite greenSprite;
 
     private int selectedItem = 0;
     private int currentSelectedItem = 0;
@@ -62,14 +62,16 @@ public class ShopManager : MonoBehaviour
     {
         if (skinData.ownedSkins.Contains(currentSelectedItem))
         {
-            buyButtonText.color = defaultColor;
+            // buyButtonText.color = defaultColor;
+            buyButtonSpriteRenderer.sprite = defaultSprite;
             buyButtonText.text = (currentSelectedItem == selectedItem) ? "Selected" : "Select";
             buyButton.enabled = true;
         }
         else
         {
             buyButtonText.text = itemsPrice[currentSelectedItem] + "$";
-            buyButtonText.color = (currentGoldAmount >= itemsPrice[currentSelectedItem]) ? greenColor : redColor;
+            buyButtonSpriteRenderer.sprite = 
+               (currentGoldAmount >= itemsPrice[currentSelectedItem]) ? greenSprite : redSprite;
             buyButton.enabled = true;
         }
     }
