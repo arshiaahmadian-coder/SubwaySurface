@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject[] skinModels;
     [SerializeField] Animator moveAnimator;
-    [SerializeField] Animator modelAnimator;
+    Animator modelAnimator;
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpForce;
     [SerializeField] private float groundCheckDistance = 0.2f;
@@ -47,6 +48,13 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         targetPosition = transform.position;
+        
+        SkinData skinData = new SkinData();
+        SaveLoadManager.singleton.Load(skinData, SaveLoadManager.singleton.skinDataFileName);
+        foreach (GameObject model in skinModels)
+            model.SetActive(false);
+        skinModels[skinData.selectedSkin].SetActive(true);
+        modelAnimator = skinModels[skinData.selectedSkin].GetComponent<Animator>();
     }
 
     private void FixedUpdate()

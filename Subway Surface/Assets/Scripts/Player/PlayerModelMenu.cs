@@ -4,8 +4,8 @@ public class PlayerModelMenu : MonoBehaviour
 {
     public Animator animator;
 
-    private void Start()
+    private void OnEnable()
     {
-        animator.SetTrigger("Idle");
+        animator.SetBool("Idle", true);
     }
 }
