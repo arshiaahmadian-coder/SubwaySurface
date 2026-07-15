@@ -6467,6 +6467,8 @@ MonoBehaviour:
   buyButtonText: {fileID: 1558193232}
   buyButton: {fileID: 1890229960}
   buyButtonSpriteRenderer: {fileID: 1890229955}
+  errorSound: {fileID: 8300000, guid: de7b06dd2c104c1418f9beaca262e1d8, type: 3}
+  purchaseSound: {fileID: 8300000, guid: d908f683cfedc7f49b8d621b90b07edf, type: 3}
   redSprite: {fileID: 21300000, guid: 5715e882016324a0dbd6f90c009e3550, type: 3}
   defaultSprite: {fileID: 21300000, guid: 325a48202e6e041f39127550bd056254, type: 3}
   greenSprite: {fileID: 21300000, guid: 4d1dfd69b7755442697f28d60a980d8c, type: 3}
