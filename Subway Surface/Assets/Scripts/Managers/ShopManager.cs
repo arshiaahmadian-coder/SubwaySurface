@@ -24,6 +24,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Sprite defaultSprite;
     [SerializeField] Sprite greenSprite;
 
+    [Header("Camera")]
+    [SerializeField] Animator cameraAnimator;
+
     private int selectedItem = 0;
     private int currentSelectedItem = 0;
 
@@ -135,6 +138,7 @@ public class ShopManager : MonoBehaviour
 
     public void OpenShop()
     {
+        cameraAnimator.SetBool("IsShopOpen", true);
         SoundManager.singleton.PlaySoundEffect(clickSound);
         shopMenu.SetActive(true);
         ui.SetActive(false);
@@ -146,6 +150,7 @@ public class ShopManager : MonoBehaviour
 
     public void CloseShop()
     {
+        cameraAnimator.SetBool("IsShopOpen", false);
         SoundManager.singleton.PlaySoundEffect(clickSound);
         shopMenu.SetActive(false);
         ui.SetActive(true);
