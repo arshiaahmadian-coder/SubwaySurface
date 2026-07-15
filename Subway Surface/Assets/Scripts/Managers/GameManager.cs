@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        StartCoroutine(SoundManager.singleton.StopMusicSlowly());
+        StartCoroutine(SoundManager.singleton.StopMusicSlowly(1f));
         ChunkManager.singleton.Stop();
         Invoke(nameof(OpenDialog), 1f);
         // save data

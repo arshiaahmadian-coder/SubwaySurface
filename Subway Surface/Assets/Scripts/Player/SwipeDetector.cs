@@ -4,7 +4,9 @@ using UnityEngine.InputSystem;
 public class SwipeDetector : MonoBehaviour
 {
     Vector2 startPosition;
-    bool isSwiping;
+    bool isTouching;
+    bool isHolding;
+    private float holdTimer;
     public PlayerController player;
 
     void Update()
@@ -17,26 +19,38 @@ public class SwipeDetector : MonoBehaviour
         if (touch.press.wasPressedThisFrame)
         {
             startPosition = touch.position.ReadValue();
-            isSwiping = true;
+            isTouching = true;
         }
 
-        if (isSwiping && touch.press.isPressed)
+        if (isTouching && touch.press.isPressed)
         {
+            holdTimer += Time.deltaTime;
+            if (holdTimer >= SettingManager.singleton.holdThreshold)
+            {
+                if (isHolding == false) player.TryToSprint();
+                isHolding = true;
+            }
+
             Vector2 currentPosition = touch.position.ReadValue();
 
             Vector2 direction = currentPosition - startPosition;
 
             if (direction.magnitude >= SettingManager.singleton.swipeThreshold)
             {
+                if (isHolding == true) player.ResetSprint();
+                holdTimer = 0;
+                isTouching = false;
+                isHolding = false;
                 DetectDirection(direction);
-
-                isSwiping = false;
             }
         }
 
         if (touch.press.wasReleasedThisFrame)
         {
-            isSwiping = false;
+            if (isHolding == true) player.ResetSprint();
+            holdTimer = 0;
+            isTouching = false;
+            isHolding = false;
         }
     }
 

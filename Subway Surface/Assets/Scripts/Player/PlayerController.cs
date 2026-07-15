@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -27,6 +29,11 @@ public class PlayerController : MonoBehaviour
     [Header("Lines")]
     [SerializeField] Transform[] linePositions;
     [SerializeField] float laneChangeSpeed = 10f;
+
+    [Header("FOV")]
+    [SerializeField] CinemachineCamera cinemachineCamera;
+    [SerializeField] float fovWhileRunning;
+    [SerializeField] float fovWhileSprinting;
 
     public int currentLine = 1;
     public bool isRolling = false;
@@ -147,6 +154,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void TryToSprint()
+    {
+        if (isDead || isRolling || !isGrounded) return;
+        // play spirint animation
+        modelAnimator.SetBool("Sprinting", true);
+        // increase speed
+        ChunkManager.singleton.SprintSpeed();
+        // fov
+        StartCoroutine(ChangeToSprintFov());
+    }
+
+    public void ResetSprint()
+    {
+        // play run animation
+        modelAnimator.SetBool("Sprinting", false);
+        // decrease speed
+        ChunkManager.singleton.RunSpeed();
+        // fov
+        StartCoroutine(ChangeToRunFov());
+    }
+
     private void ResetRoll()
     {
         isRolling = false;
@@ -178,5 +206,35 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(groundCheckTransform.position, Vector3.down * groundCheckDistance);
+    }
+
+    public IEnumerator ChangeToSprintFov(float fadeDuration = 0.2f)
+    {
+        float startFov = cinemachineCamera.Lens.FieldOfView;
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(startFov, fovWhileSprinting, elapsed / fadeDuration);
+            yield return null;
+        }
+
+        cinemachineCamera.Lens.FieldOfView = fovWhileSprinting;
+    }
+
+    public IEnumerator ChangeToRunFov(float fadeDuration = 0.2f)
+    {
+        float startFov = cinemachineCamera.Lens.FieldOfView;
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(startFov, fovWhileRunning, elapsed / fadeDuration);
+            yield return null;
+        }
+
+        cinemachineCamera.Lens.FieldOfView = fovWhileRunning;
     }
 }

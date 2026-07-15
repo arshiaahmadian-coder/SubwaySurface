@@ -6,7 +6,14 @@ public class ChunkManager : MonoBehaviour
     public static ChunkManager singleton;
     private void Awake() { singleton = this; }
     public float chunkMoveSpeed;
+    public float chunkMoveSpeedRun;
+    public float chunkMoveSpeedSprint;
     public float increaseAmount;
+
+    private void Start()
+    {
+        chunkMoveSpeed = chunkMoveSpeedRun;
+    }
 
     public void Stop()
     {
@@ -16,8 +23,20 @@ public class ChunkManager : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        if (chunkMoveSpeed == 0) return;
+        // if (chunkMoveSpeed == 0) return;
         
-        chunkMoveSpeed += increaseAmount;
+        // chunkMoveSpeed += increaseAmount;
+    }
+
+    public void SprintSpeed()
+    {
+        if (chunkMoveSpeed == 0) return;
+        chunkMoveSpeed = chunkMoveSpeedSprint;
+    }
+
+    public void RunSpeed()
+    {
+        if (chunkMoveSpeed == 0) return;
+        chunkMoveSpeed = chunkMoveSpeedRun;
     }
 }

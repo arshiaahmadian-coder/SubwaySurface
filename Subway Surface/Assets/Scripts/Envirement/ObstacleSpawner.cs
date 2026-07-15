@@ -37,14 +37,14 @@ public class ObstacleSpawner : MonoBehaviour
     {
         while (canSpawn)
         {
-            if (ChunkManager.singleton.chunkMoveSpeed < -12)
+            if (GameManager.singleton.scoreAmount > 1500)
                 SpawnPatternMedium();
             else
                 SpawnPatternEasy();
 
             ChunkManager.singleton.IncreaseSpeed();
 
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(spawnInterval - (ChunkManager.singleton.chunkMoveSpeed * -0.01f));
         }
     }
 

@@ -778,7 +778,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkManager
   obstacleSpawner: {fileID: 439424714}
-  chunkMoveSpeed: -10
+  chunkMoveSpeed: 0
+  chunkMoveSpeedRun: -14
+  chunkMoveSpeedSprint: -20
   increaseAmount: -0.015
 --- !u!114 &439424714
 MonoBehaviour:
@@ -808,7 +810,7 @@ MonoBehaviour:
   - {fileID: 5446947014233068000, guid: 8d167684e2fef8e4b8cbe1d287c2990d, type: 3}
   - {fileID: 8919283863525501010, guid: 2b44215b046dd5b4eb7222b8a132c4bb, type: 3}
   coinPrefab: {fileID: 2192069773480953215, guid: 30c1e110ee648ee45844c7976d6e8190, type: 3}
-  spawnInterval: 1
+  spawnInterval: 0.8
   spawnDistance: 11
   spawnAmount: 8
 --- !u!1 &458440752
@@ -2218,6 +2220,9 @@ MonoBehaviour:
   - {fileID: 1184027288}
   - {fileID: 458440753}
   laneChangeSpeed: 15
+  cinemachineCamera: {fileID: 636993792}
+  fovWhileRunning: 65
+  fovWhileSprinting: 70
   currentLine: 1
   isRolling: 0
 --- !u!54 &1343744886
@@ -3762,6 +3767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingManager
   swipeThreshold: 60
+  holdThreshold: 0.5
   musicSoundVolume: 0.8
   soundFxVolume: 0.8
 --- !u!4 &1938319520

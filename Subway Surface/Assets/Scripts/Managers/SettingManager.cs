@@ -6,6 +6,7 @@ public class SettingManager : MonoBehaviour
     private void Awake() { singleton = this; }
 
     public float swipeThreshold = 100f;
+    public float holdThreshold = 0.3f;
     public float musicSoundVolume = 0.8f;
     public float soundFxVolume = 0.8f;
 
