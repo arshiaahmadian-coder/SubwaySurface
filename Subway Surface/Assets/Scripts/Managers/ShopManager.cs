@@ -19,6 +19,10 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Button buyButton;
     [SerializeField] Image buyButtonSpriteRenderer;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip errorSound;
+    [SerializeField] AudioClip purchaseSound;
+
     [Header("Sprites")]
     [SerializeField] Sprite redSprite;
     [SerializeField] Sprite defaultSprite;
@@ -65,7 +69,6 @@ public class ShopManager : MonoBehaviour
     {
         if (skinData.ownedSkins.Contains(currentSelectedItem))
         {
-            // buyButtonText.color = defaultColor;
             buyButtonSpriteRenderer.sprite = defaultSprite;
             buyButtonText.text = (currentSelectedItem == selectedItem) ? "Selected" : "Select";
             buyButton.enabled = true;
@@ -81,8 +84,6 @@ public class ShopManager : MonoBehaviour
 
     public void OnBuyClick()
     {
-        SoundManager.singleton.PlaySoundEffect(clickSound);
-
         if (skinData.ownedSkins.Contains(currentSelectedItem))
         {
             // Select
@@ -94,10 +95,11 @@ public class ShopManager : MonoBehaviour
             if (currentGoldAmount >= itemsPrice[currentSelectedItem])
             {
                 PurchaseItem();
+                SoundManager.singleton.PlaySoundEffect(purchaseSound);
             }
             else
             {
-                // Not enough gold feedback
+                SoundManager.singleton.PlaySoundEffect(errorSound);
             }
         }
     }

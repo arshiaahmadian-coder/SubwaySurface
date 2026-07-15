@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 394449db372ccb645bd455ea0636fe7a
+guid: 7a03a1941f145b44093124a513d4865d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -134,34 +134,12 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: icons8-home-480_0
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 64
-        width: 384
-        height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dbc8d16b6422324db33705da6eb2676
-      internalID: 1656977207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 16cbf6bc20155e4468208828bd552647
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -169,11 +147,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
-    nameFileIdTable:
-      icons8-home-480_0: 1656977207
+      entries: []
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
