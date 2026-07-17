@@ -1141,6 +1141,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1544151834}
     m_Modifications:
     - target: {fileID: 1026538565193458829, guid: 0c595801d9318494f952bc5e7374969c, type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026538565193458829, guid: 0c595801d9318494f952bc5e7374969c, type: 3}
       propertyPath: m_FontData.m_BestFit
       value: 1
       objectReference: {fileID: 0}
@@ -4671,7 +4675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1886209041, guid: e19c1c5a02359d84e8219157f986a58c, type: 3}
+  m_Sprite: {fileID: -1943910854, guid: 50b685d92973fb6498ef78ad8393bf75, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5252,7 +5256,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6386,7 +6390,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HighScore: 0000000'
+  m_Text: 
 --- !u!1 &1981987999
 GameObject:
   m_ObjectHideFlags: 0
@@ -6453,7 +6457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
   currentGoldAmount: 0
-  clickSound: {fileID: 8300000, guid: a060157f5f020f24083100cd0a9283ae, type: 3}
   skinModels:
   - {fileID: 1731703493}
   - {fileID: 6526714133522118892}

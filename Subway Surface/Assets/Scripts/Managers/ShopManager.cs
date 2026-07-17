@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     public int currentGoldAmount;
-
-    [SerializeField] AudioClip clickSound;
     [SerializeField] List<GameObject> skinModels = new List<GameObject>();
     [SerializeField] List<int> itemsPrice = new List<int>();
 
@@ -52,7 +50,7 @@ public class ShopManager : MonoBehaviour
 
     public void SelectItem(int itemIndex)
     {
-        SoundManager.singleton.PlaySoundEffect(clickSound);
+        SoundManager.singleton.PlayClickSound();
         if (currentSelectedItem == itemIndex) return;
 
         currentSelectedItem = itemIndex;
@@ -141,7 +139,7 @@ public class ShopManager : MonoBehaviour
     public void OpenShop()
     {
         cameraAnimator.SetBool("IsShopOpen", true);
-        SoundManager.singleton.PlaySoundEffect(clickSound);
+        SoundManager.singleton.PlayClickSound();
         shopMenu.SetActive(true);
         ui.SetActive(false);
 
@@ -153,7 +151,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         cameraAnimator.SetBool("IsShopOpen", false);
-        SoundManager.singleton.PlaySoundEffect(clickSound);
+        SoundManager.singleton.PlayClickSound();
         shopMenu.SetActive(false);
         ui.SetActive(true);
 
