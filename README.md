@@ -1,5 +1,7 @@
 # Desert Surfers
 
+![Bennie Boom Dash](Screenshots/cover.png)
+
 ## About
 
 **Desert Surfers** is a 3D endless runner arcade game inspired by Subway Surfers, set in a hot and dangerous desert environment. Players control a desert surfer running at high speed across multiple lanes, dodging obstacles while collecting coins.
