@@ -35,11 +35,16 @@ Programmer / Unity
 
 ## Screenshots
 
-![Desert Surfers Gameplay](Screenshots/1.png)
-![Gameplay 1](Screenshots/2.png)
-![Gameplay 1](Screenshots/3.png)
-![Gameplay 1](Screenshots/4.png)
-![Gameplay 1](Screenshots/5.png)
+<p align="center">
+  <img src="Screenshots/1.png" width="32%" />
+  <img src="Screenshots/2.png" width="32%" />
+  <img src="Screenshots/3.png" width="32%" />
+</p>
+
+<p align="center">
+  <img src="Screenshots/4.png" width="32%" />
+  <img src="Screenshots/5.png" width="32%" />
+</p>
 
 ## Gameplay Video
 
