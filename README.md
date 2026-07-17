@@ -38,14 +38,10 @@ Programmer / Unity
 ## Screenshots
 
 <p align="center">
-  <img src="Screenshots/1.png" width="32%" />
-  <img src="Screenshots/2.png" width="32%" />
-  <img src="Screenshots/3.png" width="32%" />
-</p>
-
-<p align="center">
-  <img src="Screenshots/4.png" width="32%" />
-  <img src="Screenshots/5.png" width="32%" />
+  <img src="Screenshots/1.png" width="24%" />
+  <img src="Screenshots/2.png" width="24%" />
+  <img src="Screenshots/3.png" width="24%" />
+  <img src="Screenshots/4.png" width="24%" />
 </p>
 
 ## Gameplay Video
