@@ -6,7 +6,7 @@
 
 **Desert Surfers** is a 3D endless runner arcade game inspired by Subway Surfers, set in a hot and dangerous desert environment. Players control a desert surfer running at high speed across multiple lanes, dodging obstacles while collecting coins.
 
-The game features a unique mechanic: holding your finger on the screen makes the character run **faster**. The player can change lanes, jump, and roll, but **cannot jump over obstacles**. The main obstacles are broken and abandoned cars scattered across the desert.
+The game features a unique mechanic: holding your finger on the screen makes the character run **faster**. The player can change lanes, jump, and roll. The main obstacles are broken and abandoned cars scattered across the desert.
 
 The game includes a coin collection system, an in-game Shop to unlock and play with different characters, and a high score / record system.
 
