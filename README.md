@@ -1,6 +1,6 @@
 # Desert Surfers
 
-![Bennie Boom Dash](Screenshots/cover.png)
+![Desert Surf](Screenshots/cover.png)
 
 ## About
 
@@ -27,7 +27,7 @@ Endless Runner
 
 ## My Role
 
-Programmer / Unity
+Solo Developer (Unity Programmer)
 
 ## Technologies
 
